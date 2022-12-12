@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author tomas
+ * @author tomas pene
  */
 public class OrdenacionArrays {
 
