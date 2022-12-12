@@ -4,43 +4,138 @@
  */
 package ejerciciosEstructurasAlmacenamiento;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  *
- * @author tomas
+ * @author Usuario
  */
-public class ej05 {
+public class ejercicio5 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String hola;
-        leerValores();
+        //Inicializo los valores para que no de error. 
+        int contadorDePositivos = 0;
+        int contadorDeNegativos = 0;
+        int contadorDeCeros = 0;
+        //Creo un nuevo array de 10 valores para que el usuario
+        int[] numerosIntroducidosUsuario = new int[10];
+        System.out.println("····································································································································································");
+        guardarArray(numerosIntroducidosUsuario);
+        mostrarArray(numerosIntroducidosUsuario);
+        System.out.println("····································································································································································");
+        //Contadores para los valores que el usuario introduzca, ya sean negativos, ceros o positivos. 
+        contadorDePositivos = arrayNumerosPositivos(numerosIntroducidosUsuario);
+        System.out.println("Ha introducido " + contadorDePositivos + " numeros positivos");
+        System.out.println("····································································································································································");
 
+        contadorDeNegativos = arrayNumerosNegativos(numerosIntroducidosUsuario);
+        System.out.println("Ha introducido " + contadorDeNegativos + " numeros negativos");
+
+        System.out.println("····································································································································································");
+        contadorDeCeros = arrayCeros(numerosIntroducidosUsuario);
+        System.out.println("Ha introducido " + contadorDeCeros + " ceros");
+
+        System.out.println("····································································································································································");
+        mediaPositivos(numerosIntroducidosUsuario);
+        mediaNegativos(numerosIntroducidosUsuario);
+    }
+    //Importamos Scanner para no tener que inicializarlo en cada método.
+    private static final Scanner teclado = new Scanner(System.in);
+
+    public static int leerNumerosEnteros() {
+        int numZ = 0;
+        boolean repetir = true;
+
+        do {
+            System.out.println("Introduce el numero entero");
+            //Controlar excepciones.
+            try {
+                numZ = teclado.nextInt();
+                repetir = false;
+            } catch (InputMismatchException ime) {
+                System.out.println("No has introducido un numero entero");
+            }
+        } while (repetir);
+        return numZ;
     }
 
-    //Leer valores enteros e introducirlos en el array.
-    public static void leerValores() {
-        //Declaración del Scanner
-        Scanner teclado = new Scanner(System.in);
+    //Se guardan en el array los numeros introducidos por el usuario
+    public static void guardarArray(int[] origen) {
+        for (int i = 0; i < origen.length; i++) {
+            origen[i] = leerNumerosEnteros();
+        }
 
-        System.out.println("Introduce los numeros enteros");
-        int numZ = teclado.nextInt();
-        int[] dimensionArray = new int[10];
+    }
+    public static int arrayNumerosPositivos(int[] origen) {
+        int contador = 0;
+        for (int i = 0; i < origen.length; i++) {
+            if (origen[i] > 0) {
+                contador++;
+            }
+        }
+        return contador;
 
-        for (int i = 0; i < dimensionArray.length; i++) {
-            //Aqui en ves de poner el teclado.nextInt pongo el método que filtre todos los numeros con sus excepciones
-            dimensionArray[i] = numIntroduce();
+    }
+    public static int arrayNumerosNegativos(int[] origen) {
+        int contador = 0;
+        for (int i = 0; i < origen.length; i++) {
+            if (origen[i] < 0) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    public static int arrayCeros(int[] origen) {
+        int contador = 0;
+        for (int i = 0; i < origen.length; i++) {
+            if (origen[i] == 0) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    public static void mostrarArray(int[] origen) {
+        for (int i = 0; i < origen.length; i++) {
+            System.out.println(" " + origen[i]);
         }
     }
+    public static void mediaPositivos(int[] origen) {
+        int suma = 0;
+        int media = 0;
+        for (int i = 0; i < origen.length; i++) {
+            if (origen[i] > 0) {
+                suma = (suma + origen[i]);
+            }
+        }
+        //Controlar excepciones.
+        try {
+            media = suma / arrayNumerosPositivos(origen);
+        } catch (ArithmeticException eme) {
+            System.out.println("Operación imposible");
+        }
+        System.out.println("La media de los positivos es: " + media);
+    }
 
-    public static int numIntroduce() {
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Introduce el numero entero");
-        int numZ = teclado.nextInt();
-        
-        return numZ;
+    public static void mediaNegativos(int[] origen) {
+        int suma = 0;
+        int media = 0;
+        for (int i = 0; i < origen.length; i++) {
+            if (origen[i] < 0) {
+                suma += origen[i];
+            }
+        }
+        //Controlar excepciones.
+        try {
+            media = suma / arrayNumerosNegativos(origen);
+        } catch (ArithmeticException eme) {
+            System.out.println("Operación imposible");
+        }
+        System.out.println("La media de los negativos es: " + media);
     }
 }
