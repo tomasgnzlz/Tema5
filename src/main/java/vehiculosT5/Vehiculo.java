@@ -2,30 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package claseviernes;
+package vehiculosT5;
 
 import java.util.Objects;
 import java.util.Random;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
  * @author tomas
  */
 public class Vehiculo {
-     private String bastidor;
-     private String matricula;
-     private Color color;
-     private Modelo modelo;
-     private boolean disponible;
-     private double tarifa;
-     
-     //Constructor sin parametros que genere vehicuos diferentes con datos diferentes
-     public Vehiculo(){
-         
-       
-           
-     }
-     
+
+    private String bastidor;
+    private String matricula;
+    private Color color;
+    private Modelo modelo;
+    private boolean disponible;
+    private double tarifa;
+
+    //Constructor sin parametros que genere vehicuos diferentes con datos diferentes
+    public Vehiculo() {
+        this.bastidor = RandomStringUtils.randomAlphabetic(5);
+        this.matricula = RandomStringUtils.randomNumeric(4);
+        this.modelo = Modelo.getAleatorio();
+    }
 
     @Override
     public String toString() {
@@ -40,6 +41,7 @@ public class Vehiculo {
         sb.append('}');
         return sb.toString();
     }
+
     //Getters and Setters
     public String getBastidor() {
         return bastidor;
@@ -130,9 +132,4 @@ public class Vehiculo {
         }
         return this.modelo == other.modelo;
     }
-    
-    
-     
-     
-     
 }

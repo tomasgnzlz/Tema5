@@ -2,7 +2,7 @@
  Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
 */
-package claseviernes;
+package vehiculosT5;
 
 import java.util.Random;
 
@@ -11,7 +11,7 @@ import java.util.Random;
  * @author tomas
  */
 public enum Modelo {
-    
+    //Creo los módelos de vehiculos a elegir. 
      SEAT_PANDA("Seat", "Panda", "48"),
      FORD_KUGA("Ford", "Kuga", "120"),
      SEAT_CUPRA("Seat", "Cupra", "95");
@@ -48,10 +48,10 @@ public enum Modelo {
         sb.append('}');
         return sb.toString();
     }
-    //Método para coger un 
+    //Método para escoger un vehiculo aleatorio. 
     public static Modelo getAleatorio(){
         Random r = new Random();
-        Modelo[] modelos = Modelo.values();//generá un array de todos los modelos del enum. 
+        Modelo[] modelos = Modelo.values();//Generá un array de todos los modelos del enum. 
 //        for( int i = 0; i<modelos.lenght; i++){
 //        System.out.println(modelos[i])
 //        }

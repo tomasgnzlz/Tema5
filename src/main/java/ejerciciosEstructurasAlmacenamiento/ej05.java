@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 /**
  *
- * @author Usuario
+ * @author tomas
  */
-public class ejercicio5 {
+public class ej05 {
 
     /**
      * @param args the command line arguments
