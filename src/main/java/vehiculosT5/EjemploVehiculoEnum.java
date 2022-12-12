@@ -54,7 +54,8 @@ public class EjemploVehiculoEnum {
 //        catalogo.borrarVehiculo(catalogo.getListaVehiculos()[4]);
 //        System.out.println("MOSTRAR CATALOGO DE VEHICULOS");
 //        catalogo .mostrarCatalogo();
-            CatalogoVehiculos catalogo = new CatalogoVehiculos(10);
+
+            CatalogoVehiculos catalogo = new CatalogoVehiculos(5);
             System.out.println("Nº de vehiculos del catalogo " + catalogo.getNumeroVehiculos());
             System.out.println(catalogo);
             
@@ -79,8 +80,6 @@ public class EjemploVehiculoEnum {
             System.out.println("Despues de borrar el vehiculo de la posición 3");
             System.out.println("Nº vehículos del catálogo" + catalogo.getNumeroVehiculos());
             System.out.println(catalogo);
-            
-                
     }
 
 }

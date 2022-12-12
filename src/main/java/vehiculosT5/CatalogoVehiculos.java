@@ -93,23 +93,14 @@ public class CatalogoVehiculos {
             }
         }
         return tmp;
-        
+    }
+       
         /*
-        1. ·MÉTODO COPIAR PRIVADO
+        1. ·MÉTODO COPIAR array  PRIVADO
+    
         2. ·CATÁLOGO DE CLIENTES
                             -NOMBRE, APELLIDO, NIF. (CLASE CLIENTE, CREAR CATALOGO CLIENTES AL IGUAL QUE CATALOGO VEHICULOS)
         ·
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         */
-    }
 
 }
