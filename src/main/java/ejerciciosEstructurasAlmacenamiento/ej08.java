@@ -41,7 +41,9 @@ public class ej08 {
         }
 
         System.out.println(Arrays.toString(arrayDeseado));
-
+        do {            
+            
+        } while (arrayDeseado.hashCode() == 1, 2, 3, 4, 5, 6, 7, 8, );
         if (arrayDeseado.length == 1) {
             System.out.println("*");
         } else if (arrayDeseado.length == 2) {
