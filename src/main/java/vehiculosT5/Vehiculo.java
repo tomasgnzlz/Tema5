@@ -94,15 +94,24 @@ public class Vehiculo {
         this.tarifa = tarifa;
     }
 
+ 
+
+    
+    // LO QUE ME HA SALIDO PARA QUE SE QUITE EL ERROR
+
+//    Vehiculo buscarVehiculo(Vehiculo v) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.bastidor);
-        hash = 83 * hash + Objects.hashCode(this.matricula);
-        hash = 83 * hash + Objects.hashCode(this.color);
-        hash = 83 * hash + Objects.hashCode(this.modelo);
-        hash = 83 * hash + (this.disponible ? 1 : 0);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.tarifa) ^ (Double.doubleToLongBits(this.tarifa) >>> 32));
+        hash = 79 * hash + Objects.hashCode(this.bastidor);
+        hash = 79 * hash + Objects.hashCode(this.matricula);
+        hash = 79 * hash + Objects.hashCode(this.color);
+        hash = 79 * hash + Objects.hashCode(this.modelo);
+        hash = 79 * hash + (this.disponible ? 1 : 0);
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.tarifa) ^ (Double.doubleToLongBits(this.tarifa) >>> 32));
         return hash;
     }
 
@@ -118,26 +127,6 @@ public class Vehiculo {
             return false;
         }
         final Vehiculo other = (Vehiculo) obj;
-        if (this.disponible != other.disponible) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.tarifa) != Double.doubleToLongBits(other.tarifa)) {
-            return false;
-        }
-        if (!Objects.equals(this.bastidor, other.bastidor)) {
-            return false;
-        }
-        if (!Objects.equals(this.matricula, other.matricula)) {
-            return false;
-        }
-        if (this.color != other.color) {
-            return false;
-        }
-        return this.modelo == other.modelo;
+        return Objects.equals(this.bastidor, other.bastidor);
     }
-    // LO QUE ME HA SALIDO PARA QUE SE QUITE EL ERROR
-
-//    Vehiculo buscarVehiculo(Vehiculo v) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
 }

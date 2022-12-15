@@ -16,13 +16,10 @@ public class CatalogoAlquiler {
 
     //El constructor recibe el tamaño del catálogo e 
     //Inicializa la estructura de datos con vehiculos aleatorios.
-    public CatalogoAlquiler(int alquiler) {
-        alquiler = Math.abs(alquiler);
-        this.numeroAlquiler = alquiler;
-        this.listaAlquiler = new Alquileres[alquiler];
-        for (int i = 0; i < listaAlquiler.length; i++) {
-            this.listaAlquiler[i] = new Alquileres();
-        }
+    public CatalogoAlquiler(int tamanio) {
+        this.numeroAlquiler = 0;
+        tamanio = Math.abs(tamanio);
+        this.listaAlquiler = new Alquileres[tamanio];
     }
 
 //    public void mostrarCatalogo() {
@@ -30,6 +27,7 @@ public class CatalogoAlquiler {
 //            System.out.println(v);
 //        }
 //    }
+    @Override
     public String toString() {
         String tmp = "";
 

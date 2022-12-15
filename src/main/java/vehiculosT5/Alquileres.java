@@ -11,12 +11,11 @@ import java.time.LocalDate;
  * @author Usuario
  */
 public class Alquileres {
-     private int arquileID;
+    private int arquileID;
     private Cliente cliente;
     private Vehiculo vehiculo;
     private LocalDate fechaInicio;
     private int duracionDias;
-
     private static int contador = 0;
 
     public Alquileres(Cliente cliente, Vehiculo vehiculo, LocalDate fechaInicio, int duracionDias) {
@@ -31,7 +30,7 @@ public class Alquileres {
     public Alquileres() {
     }
 
-    public int getArquileID() {
+    public int getArquilerID() {
         return arquileID;
     }
     public void setAlquilerID(int alquilerID){
@@ -74,8 +73,8 @@ public class Alquileres {
         StringBuilder sb = new StringBuilder();
         sb.append("Alquileres{");
         sb.append("arquileID=").append(arquileID);
-        sb.append(", cliente=").append(cliente.getNIF());
-        sb.append(", vehiculo=").append(vehiculo.getBastidor());
+        sb.append(", cliente=").append(cliente);
+        sb.append(", vehiculo=").append(vehiculo);
         sb.append(", fechaInicio=").append(fechaInicio);
         sb.append(", duracionDias=").append(duracionDias);
         sb.append('}');

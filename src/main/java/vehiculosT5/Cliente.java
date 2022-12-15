@@ -24,22 +24,24 @@ public class Cliente {
 
     private String nombre;
     private String apellido;
-    private String NIF;
+    private String nif;
+     private static int contador = 0;
 
     //Constructor
     public Cliente() {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.NIF = RandomStringUtils.randomAlphanumeric(9);
+        this.nombre = RandomStringUtils.randomAlphabetic(7);
+        this.apellido = RandomStringUtils.randomAlphabetic(5);
+        contador++;
+        this.nif = String.valueOf(contador);
     }
 
     //Getters & Setters
     public String getNIF() {
-        return NIF;
+        return nif;
     }
 
-    public void setNIF(String NIF) {
-        this.NIF = NIF;
+    public void setNIF(String nif) {
+        this.nif = nif;
     }
 
     public String getNombre() {
@@ -65,18 +67,17 @@ public class Cliente {
         sb.append("Cliente{");
         sb.append("nombre=").append(nombre);
         sb.append(", apellido=").append(apellido);
-        sb.append(", NIF=").append(NIF);
+        sb.append(", NIF=").append(nif);
         sb.append('}');
         return sb.toString();
     }
 
     //HashCode & Equals
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 31 * hash + Objects.hashCode(this.nombre);
-        hash = 31 * hash + Objects.hashCode(this.apellido);
-        hash = 31 * hash + Objects.hashCode(this.NIF);
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.nif);
         return hash;
     }
 
@@ -92,12 +93,7 @@ public class Cliente {
             return false;
         }
         final Cliente other = (Cliente) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.apellido, other.apellido)) {
-            return false;
-        }
-        return Objects.equals(this.NIF, other.NIF);
+        return Objects.equals(this.nif, other.nif);
     }
+    
 }

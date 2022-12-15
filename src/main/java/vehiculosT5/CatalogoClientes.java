@@ -14,7 +14,7 @@ public class CatalogoClientes {
 
     private int numeroClientes;
     private Cliente[] listaClientes;
-    
+
     public CatalogoClientes(int numClientes) {
         numClientes = Math.abs(numClientes);
         this.numeroClientes = numClientes;
@@ -23,17 +23,6 @@ public class CatalogoClientes {
             this.listaClientes[i] = new Cliente();
         }
     }
-
-//    public CatalogoClientes(int tamanio) {
-//        this.numeroClientes = tamanio;
-//        tamanio = Math.abs(tamanio);
-//        this.listaClientes = new Cliente[tamanio];
-//
-//        for (int i = 0; i < listaClientes.length; i++) {
-//            
-//            this.listaClientes[i] = new  Cliente();
-//        }
-//    }
 
     //ToString
     @Override
@@ -51,14 +40,7 @@ public class CatalogoClientes {
     public int getNumeroClientes() {
         return numeroClientes;
     }
-    public Cliente buscarCliente(String nif) {
-        Cliente aux = new Cliente();
-        aux.setNIF(nif);
-        int posicion = buscarCliente(aux);
-        return (posicion >= 0) ? this.listaClientes[posicion] : null;
-    }
-    
-   
+
     //Método para borrar clientes del catálogo.
     public void borrarCliente(Cliente c) {
         int pos = buscarCliente(c);
@@ -66,16 +48,8 @@ public class CatalogoClientes {
             this.listaClientes[pos] = null;
         }
     }
-//    public boolean borrarCliente(Cliente c) {
-//        int posicion = buscarCliente(c);
-//        if (posicion >= 0) {
-//            this.numeroClientes--;
-//            this.listaClientes[posicion] = null;
-//            return true;
-//        }
-//        return false;
-//    }
-    //Método para buscar un cliente en concreto.
+
+    //Método para buscar clientes segun sus datos. 
     private int buscarCliente(Cliente c) {
         //Búsqueda secuencial
         if (c != null) {
@@ -87,21 +61,16 @@ public class CatalogoClientes {
         }
         return -1;
     }
-    
-    //****************************************************************************************************
-    
-//    public int buscarCliente(Cliente c1) {
-//        for (int i = 0; i < listaClientes.length; i++) {
-//            if (c1.equals(this.listaClientes[i])) {
-//                return i;
-//            }
-//        }
-//        //Si no encuentra el cliente que está buscando se muestra -1.
-//        return -1;
-//    }
+
+    public Cliente buscarCliente(String nif) {
+        Cliente aux = new Cliente();
+        aux.setNIF(nif);
+        int posicion = buscarCliente(aux);
+        return (posicion >= 0) ? this.listaClientes[posicion] : null;
+    }
 
     //Método para añadir los clientes creados al catálogo. 
-     public void anadirCliente(Cliente c) {
+    public void anadirCliente(Cliente c) {
         //Si hay hueco, se inserta en el hueco
 
         if (this.numeroClientes < this.listaClientes.length) {
@@ -120,27 +89,11 @@ public class CatalogoClientes {
             this.listaClientes[this.numeroClientes - 1] = c;
         }
     }
-//    public void añadirClientes(Cliente c1) {
-//        if (this.numeroClientes < this.listaClientes.length) {
-//            for (int i = 0; i < this.listaClientes.length; i++) {
-//                if (this.listaClientes[i] == null) {
-//                    this.listaClientes[i] = c1;
-//                    this.numeroClientes++;
-//                    break;
-//                }
-//            }
-//        } else {//El array está lleno.
-//            this.numeroClientes++;
-//            this.listaClientes = copiarArrays();
-//            this.listaClientes[this.numeroClientes - 1] = c1;
-//        }
-//    }
-//**************************************************************************************************
-     
+
     //Método para copiar los datos de un array en otro array nuevo(privado). 
     private Cliente[] copiarArrays() {
 
-        Cliente[] copy= new Cliente[this.numeroClientes + 1];
+        Cliente[] copy = new Cliente[this.numeroClientes + 1];
 
         for (int i = 0; i < this.listaClientes.length; i++) {
             copy[i] = this.listaClientes[i];
@@ -148,10 +101,8 @@ public class CatalogoClientes {
         return copy;
     }
 
-    
-
     public Cliente[] getListaClientes() {
         return listaClientes;
     }
-    
+
 }

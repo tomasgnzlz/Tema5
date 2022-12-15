@@ -55,7 +55,7 @@ public class EjemploVehiculoEnum {
 //        System.out.println("MOSTRAR CATALOGO DE VEHICULOS");
 //        catalogo .mostrarCatalogo();
 
-            CatVehMio catalogo = new CatVehMio(5);
+            CatVehAnt catalogo = new CatVehAnt(5);
             System.out.println("Nº de vehiculos del catalogo " + catalogo.getNumeroVehiculos());
             System.out.println(catalogo);
             
@@ -81,11 +81,13 @@ public class EjemploVehiculoEnum {
             System.out.println("Nº vehículos del catálogo" + catalogo.getNumeroVehiculos());
             System.out.println(catalogo);
             
+            
             System.out.println(" ");
-            System.out.println(" ·····························································");
+            System.out.println("·································································································································");
             System.out.println("·········· EJEMPLOS Y PRUEBAS CON LA CLASE CLIENTES Y CATÁLOGO CLIENTE ··········");
-            System.out.println(" ·····························································");
+            System.out.println("·································································································································");
             System.out.println(" ");
+            
             
             CatalogoClientes catalogoClientes = new CatalogoClientes(5);
             System.out.println("Nº de Clientes del catalogo " + catalogoClientes.getNumeroClientes());
