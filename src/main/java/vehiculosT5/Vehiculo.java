@@ -20,12 +20,15 @@ public class Vehiculo {
     private Modelo modelo;
     private boolean disponible;
     private double tarifa;
+    private static int contador = 0;
 
     //Constructor sin parametros que genere vehicuos diferentes con datos diferentes
     public Vehiculo() {
-        this.bastidor = RandomStringUtils.randomAlphabetic(5);
-        this.matricula = RandomStringUtils.randomNumeric(4);
+        this.bastidor = String.valueOf(++contador);
+        this.matricula = RandomStringUtils.randomNumeric(4)
+                + RandomStringUtils.randomAlphabetic(3);
         this.modelo = Modelo.getAleatorio();
+        this.color = Color.getAleatorio();
     }
 
     @Override
@@ -132,4 +135,9 @@ public class Vehiculo {
         }
         return this.modelo == other.modelo;
     }
+    // LO QUE ME HA SALIDO PARA QUE SE QUITE EL ERROR
+
+//    Vehiculo buscarVehiculo(Vehiculo v) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 }

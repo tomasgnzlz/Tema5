@@ -4,23 +4,154 @@
  */
 package vehiculosT5;
 
+import java.util.Arrays;
+
 /**
  *
  * @author tomas
  */
 public class CatalogoClientes {
-    
+
     private int numeroClientes;
     private Cliente[] listaClientes;
     
-    public CatalogoClientes( int tamanio){
-        this.numeroClientes =  tamanio;
-        tamanio = Math.abs(tamanio);
-        this.listaClientes = new Cliente[tamanio];
-        
+    public CatalogoClientes(int numClientes) {
+        numClientes = Math.abs(numClientes);
+        this.numeroClientes = numClientes;
+        this.listaClientes = new Cliente[numClientes];
         for (int i = 0; i < listaClientes.length; i++) {
-            this.listaClientes[i] = new Cliente("Tomas", "Gnzlz", "AAAAA");
+            this.listaClientes[i] = new Cliente();
         }
+    }
+
+//    public CatalogoClientes(int tamanio) {
+//        this.numeroClientes = tamanio;
+//        tamanio = Math.abs(tamanio);
+//        this.listaClientes = new Cliente[tamanio];
+//
+//        for (int i = 0; i < listaClientes.length; i++) {
+//            
+//            this.listaClientes[i] = new  Cliente();
+//        }
+//    }
+
+    //ToString
+    @Override
+    public String toString() {
+        String tmp = "";
+        for (Cliente c : listaClientes) {
+            if (c != null) {
+                tmp += c.toString() + "\n";
+            }
+        }
+        return tmp;
+    }
+
+    //Método para saber el numero de clientes que se han creado.
+    public int getNumeroClientes() {
+        return numeroClientes;
+    }
+    public Cliente buscarCliente(String nif) {
+        Cliente aux = new Cliente();
+        aux.setNIF(nif);
+        int posicion = buscarCliente(aux);
+        return (posicion >= 0) ? this.listaClientes[posicion] : null;
+    }
+    
+   
+    //Método para borrar clientes del catálogo.
+    public void borrarCliente(Cliente c) {
+        int pos = buscarCliente(c);
+        if (pos >= 0) {
+            this.listaClientes[pos] = null;
+        }
+    }
+//    public boolean borrarCliente(Cliente c) {
+//        int posicion = buscarCliente(c);
+//        if (posicion >= 0) {
+//            this.numeroClientes--;
+//            this.listaClientes[posicion] = null;
+//            return true;
+//        }
+//        return false;
+//    }
+    //Método para buscar un cliente en concreto.
+    private int buscarCliente(Cliente c) {
+        //Búsqueda secuencial
+        if (c != null) {
+            for (int i = 0; i < this.listaClientes.length; i++) {
+                if (this.listaClientes[i] != null && c.equals(this.listaClientes[i])) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+    
+    //****************************************************************************************************
+    
+//    public int buscarCliente(Cliente c1) {
+//        for (int i = 0; i < listaClientes.length; i++) {
+//            if (c1.equals(this.listaClientes[i])) {
+//                return i;
+//            }
+//        }
+//        //Si no encuentra el cliente que está buscando se muestra -1.
+//        return -1;
+//    }
+
+    //Método para añadir los clientes creados al catálogo. 
+     public void anadirCliente(Cliente c) {
+        //Si hay hueco, se inserta en el hueco
+
+        if (this.numeroClientes < this.listaClientes.length) {
+            for (int i = 0; i < this.listaClientes.length; i++) {
+                if (this.listaClientes[i] == null) {
+                    this.listaClientes[i] = c;
+                    this.numeroClientes++;
+                    System.out.println("Guardando cliente en posicion " + i);
+                    break;
+                }
+            }
+        } else {
+            this.numeroClientes++;
+            this.listaClientes = Arrays.copyOf(listaClientes,
+                    this.numeroClientes);
+            this.listaClientes[this.numeroClientes - 1] = c;
+        }
+    }
+//    public void añadirClientes(Cliente c1) {
+//        if (this.numeroClientes < this.listaClientes.length) {
+//            for (int i = 0; i < this.listaClientes.length; i++) {
+//                if (this.listaClientes[i] == null) {
+//                    this.listaClientes[i] = c1;
+//                    this.numeroClientes++;
+//                    break;
+//                }
+//            }
+//        } else {//El array está lleno.
+//            this.numeroClientes++;
+//            this.listaClientes = copiarArrays();
+//            this.listaClientes[this.numeroClientes - 1] = c1;
+//        }
+//    }
+//**************************************************************************************************
+     
+    //Método para copiar los datos de un array en otro array nuevo(privado). 
+    private Cliente[] copiarArrays() {
+
+        Cliente[] copy= new Cliente[this.numeroClientes + 1];
+
+        for (int i = 0; i < this.listaClientes.length; i++) {
+            copy[i] = this.listaClientes[i];
+        }
+        return copy;
+    }
+
+    
+
+    public Cliente[] getListaClientes() {
+        return listaClientes;
     }
     
 }

@@ -5,28 +5,32 @@
 package vehiculosT5;
 
 import java.util.Objects;
+import java.util.Scanner;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
  * @author tomas
  */
-
-    /*
+/*
         Clientes:
             ·Nombre
             ·Apellido
             ·NIF
-    */
+ */
 public class Cliente {
-    
+
+    Scanner teclado = new Scanner(System.in);
+
     private String nombre;
     private String apellido;
     private String NIF;
 
-    public Cliente(String nombre, String apellido, String NIF) {
+    //Constructor
+    public Cliente() {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.NIF = NIF;
+        this.NIF = RandomStringUtils.randomAlphanumeric(9);
     }
 
     //Getters & Setters
@@ -54,6 +58,7 @@ public class Cliente {
         this.apellido = apellido;
     }
 
+    //ToString.
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -65,22 +70,7 @@ public class Cliente {
         return sb.toString();
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //HashCode & Equals
     @Override
     public int hashCode() {
         int hash = 5;
@@ -110,5 +100,4 @@ public class Cliente {
         }
         return Objects.equals(this.NIF, other.NIF);
     }
-    
 }
