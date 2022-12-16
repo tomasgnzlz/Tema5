@@ -41,13 +41,18 @@ public class ej08 {
         }
 
         System.out.println(Arrays.toString(arrayDeseado));
-        
-    
+
+        for (int j = 0; j < tamanio; j++) {
+            for (int i = 0; i < arrayDeseado.length; i++) {
+                System.out.println("*");
+            }
+        }
+
     }
 
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-    
+
 }
