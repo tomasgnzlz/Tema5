@@ -42,29 +42,7 @@ public class ej08 {
 
         System.out.println(Arrays.toString(arrayDeseado));
         
-        if (arrayDeseado.length == 1) {
-            System.out.println("*");
-        } else if (arrayDeseado.length == 2) {
-            System.out.println("**");
-        } else if (arrayDeseado.length == 3) {
-            System.out.println("***");
-        } else if (arrayDeseado.length == 4) {
-            System.out.println("****");
-        } else if (arrayDeseado.length == 5) {
-            System.out.println("*****");
-        } else if (arrayDeseado.length == 6) {
-            System.out.println("*******");
-        } else if (arrayDeseado.length == 7) {
-            System.out.println("*******");
-        } else if (arrayDeseado.length == 8) {
-            System.out.println("********");
-        } else if (arrayDeseado.length == 9) {
-            System.out.println("*********");
-        } else if (arrayDeseado.length == 10) {
-            System.out.println("**********");
-        } else {
-            System.out.println("BOBO");
-        }
+    
     }
 
     @Override
