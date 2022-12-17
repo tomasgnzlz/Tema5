@@ -13,7 +13,8 @@ import org.apache.commons.lang3.RandomStringUtils;
  * @author tomas
  */
 /*
-        Clientes:
+·Requisitos para el registro de clientes:
+        Cliente:
             ·Nombre
             ·Apellido
             ·NIF
@@ -25,7 +26,7 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String nif;
-     private static int contador = 0;
+    private static int contador = 0;
 
     //Constructor
     public Cliente() {
@@ -33,6 +34,23 @@ public class Cliente {
         this.apellido = RandomStringUtils.randomAlphabetic(5);
         contador++;
         this.nif = String.valueOf(contador);
+    }
+
+    public Cliente(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        contador++;
+        this.nif = String.valueOf(contador);
+    }
+
+    public static Cliente generarCliente() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Indica el Nombre");
+        String nombre = teclado.nextLine();
+        System.out.println("Indica el Apellido");
+        String apellido = teclado.nextLine();
+        Cliente aux = new Cliente(nombre, apellido);
+        return aux;
     }
 
     //Getters & Setters
@@ -73,7 +91,6 @@ public class Cliente {
     }
 
     //HashCode & Equals
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -95,5 +112,5 @@ public class Cliente {
         final Cliente other = (Cliente) obj;
         return Objects.equals(this.nif, other.nif);
     }
-    
+
 }

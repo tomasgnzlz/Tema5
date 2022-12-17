@@ -46,6 +46,7 @@ public class CatalogoClientes {
         int pos = buscarCliente(c);
         if (pos >= 0) {
             this.listaClientes[pos] = null;
+            this.numeroClientes = numeroClientes--;//Cuando se elimine uno, que se borre del catálogo. 
         }
     }
 

@@ -55,7 +55,7 @@ public class EjemploVehiculoEnum {
 //        System.out.println("MOSTRAR CATALOGO DE VEHICULOS");
 //        catalogo .mostrarCatalogo();
 
-            CatVehAnt catalogo = new CatVehAnt(5);
+            CatalogoVehiculos catalogo = new CatalogoVehiculos(5);
             System.out.println("Nº de vehiculos del catalogo " + catalogo.getNumeroVehiculos());
             System.out.println(catalogo);
             

@@ -11,6 +11,7 @@ import java.util.Arrays;
  * @author Usuario
  */
 public class CatalogoAlquiler {
+    //Declaro aquellas variables que serán necesarias en el proyecto. 
     private int numeroAlquiler;
     private Alquileres[] listaAlquiler;
 
@@ -30,14 +31,11 @@ public class CatalogoAlquiler {
     @Override
     public String toString() {
         String tmp = "";
-
         for (Alquileres a : listaAlquiler) {
-
             if (a != null) {
                 tmp += a.toString() + "\n";
             }
         }
-
         return tmp;
     }
 
@@ -47,16 +45,21 @@ public class CatalogoAlquiler {
 
     public Alquileres buscarAlquiler(int id) {
         Alquileres aux = new Alquileres();
-        aux.setAlquilerID(id);
+        aux.setAlquilerID(id); //Para encontrar a la persona que tenga el nombre que se solicita. 
         int posicion = buscarAlquiler(aux);
         return (posicion >= 0) ? this.listaAlquiler[posicion] : null;
     }
 
-    public void borrarAlquiler(Alquileres a) {
-        int pos = buscarAlquiler(a);
-        if (pos >= 0) {
-            this.listaAlquiler[pos] = null;
+    
+    public boolean borrarAlquiler(Alquileres a) {
+        int posicion = buscarAlquiler(a);
+        if (posicion >= 0) {
+
+            this.listaAlquiler[posicion] = null;
+            this.numeroAlquiler--;
+            return true;
         }
+        return false;
     }
 
     private int buscarAlquiler(Alquileres a) {

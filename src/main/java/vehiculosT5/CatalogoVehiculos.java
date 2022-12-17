@@ -8,10 +8,10 @@ import java.util.Arrays;
 
 /**
  *
- * @author Usuario
+ * @author tomas
  */
 public class CatalogoVehiculos {
-    
+
     private int numeroVehiculos;
     private Vehiculo[] listaVehiculos;
 
@@ -33,14 +33,12 @@ public class CatalogoVehiculos {
 //    }
     public String toString() {
         String tmp = "";
-
         for (Vehiculo v : listaVehiculos) {
 
             if (v != null) {
                 tmp += v.toString() + "\n";
             }
         }
-
         return tmp;
     }
 
@@ -48,15 +46,14 @@ public class CatalogoVehiculos {
         return numeroVehiculos;
     }
 
-    //Número de vehículos que hay en el catálogo, no el tamaño
-//    public Vehiculos[] getListaVehiculos() {
-//        return listaVehiculos;
-//    }
-    public void borrarVehiculo(Vehiculo v) {
+    public boolean borrarVehiculo(Vehiculo v) {
         int pos = buscarVehiculo(v);
         if (pos >= 0) {
+            this.numeroVehiculos = numeroVehiculos--;
             this.listaVehiculos[pos] = null;
+            return true;
         }
+        return false;
     }
 
     public Vehiculo buscarVehiculos(String bastidor) {
@@ -75,9 +72,10 @@ public class CatalogoVehiculos {
                 }
             }
         }
-        return -1;
+        return -1;//Si no lo encuentra devuelve -1. 
     }
 
+    //Añadir Vehiculo. 
     public void anadirVehiculo(Vehiculo v) {
         //Si hay hueco, se inserta en el hueco
 
@@ -90,16 +88,23 @@ public class CatalogoVehiculos {
                     break;
                 }
             }
-        } else {//El Arrays está lleno
-//            Vehiculos [] nuevo = Arrays.copyOf(listaVehiculos, 
-//                    ++this.numeroVehiculos);
+        } else {
             this.numeroVehiculos++;
-            this.listaVehiculos = Arrays.copyOf(listaVehiculos,
-                    /*++ (para que solo guarde un espacio en null)
-                    y * para que multipilique y cree 20 espacios en null
-                     */ this.numeroVehiculos);
+            this.listaVehiculos = Arrays.copyOf(listaVehiculos, this.numeroVehiculos);
             this.listaVehiculos[this.numeroVehiculos - 1] = v;
         }
+    }
+
+    private Vehiculo[] copiar() {
+        Vehiculo[] aux = new Vehiculo[this.listaVehiculos.length + 1];
+        for (int i = 0; i < this.listaVehiculos.length; i++) {
+            aux[i] = this.listaVehiculos[i];
+        }
+        return aux;
+    }
+
+    public Vehiculo[] getListaVehiculos() {
+        return listaVehiculos;
     }
 
 }

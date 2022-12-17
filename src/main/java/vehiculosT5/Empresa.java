@@ -6,10 +6,11 @@ package vehiculosT5;
 
 import java.util.Objects;
 import java.time.LocalDate;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
- * @author Usuario
+ * @author tomas
  */
 public class Empresa {
 
@@ -21,7 +22,17 @@ public class Empresa {
 
     public Empresa(String cif, String nombre) {
         this.cif = cif;
+        this.nombre = nombre;//ççççç
+    }
+
+    public Empresa(String nombre) {
+        //8números y una letra. 
+        this.cif = RandomStringUtils.randomAlphanumeric(8)
+                + RandomStringUtils.randomAlphabetic(1);
         this.nombre = nombre;
+        this.catalogoVehiculo = new CatalogoVehiculos(5);
+        this.catalogoCliente = new CatalogoClientes(5);
+        this.catalogoAlquiler = new CatalogoAlquiler(5);
     }
 
     public Empresa() {
@@ -67,16 +78,15 @@ public class Empresa {
         this.catalogoAlquiler = catalogoAlquiler;
     }
 
+    //ToString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Empresa{");
         sb.append("cif=").append(cif);
-        sb.append(", nombre=").append(nombre);
-        sb.append(", catalogoVehiculo=").append(catalogoVehiculo);
-        sb.append(", catalogoCliente=").append(catalogoCliente);
-        sb.append(", catalogoAlquiler=").append(catalogoAlquiler);
-        sb.append('}');
+        sb.append("nombre=").append(nombre);
+        sb.append("catalogoVehiculo=").append(catalogoVehiculo);
+        sb.append("catalogoCliente=").append(catalogoCliente);
+        sb.append("catalogoAlquiler=").append(catalogoAlquiler);
         return sb.toString();
     }
 
@@ -106,17 +116,26 @@ public class Empresa {
         return Objects.equals(this.nombre, other.nombre);
     }
 
+    public void registarCliente() {
+        Cliente aux = new Cliente();
+        this.catalogoCliente.anadirCliente(aux);
+    }
+
     //Método para registrar clientes. 
     public void registrarCliente(Cliente aux) {
-        //Registrar en la empresa al cliente carlos perez, no se pueden establecer los datos del cliente aleatorio. 
-
+        //Registrar en la empresa al cliente carlos perez, no se pueden establecer
+        //los datos del cliente de forma aleatoria. 
         this.catalogoCliente.anadirCliente(aux);
+    }
+
+    public void registarVehiculo() {
+        Vehiculo aux = new Vehiculo();
+        this.catalogoVehiculo.anadirVehiculo(aux);
     }
 
     //Método para registrar vehiculos.
     public void registrarVehiculo(Vehiculo aux) {
         //Lo mismo que con registrarClientes. 
-
         this.catalogoVehiculo.anadirVehiculo(aux);
     }
 
@@ -132,10 +151,9 @@ public class Empresa {
 
     //Método para regsitar los alquileres de vehiculos. 
     //Teniendo en cuenta la fecha en la que se alquila el vehiculo y el nº de días que se mantendrá el aqlquiler. 
-    public boolean registrarAlquilerVehiculo(LocalDate fechaInicio, int duracionDias, Vehiculo v, Cliente c, String bastidor, String nif) {
-        Cliente auxCli = this.catalogoCliente.buscarCliente(nif);
-        Vehiculo auxVe = this.catalogoVehiculo.buscarVehiculos(nif);
-
+    public boolean registrarAlquilerVehiculo(LocalDate fechaInicio, int duracionDias, Vehiculo v, Cliente c) {
+        Cliente auxCli = this.catalogoCliente.buscarCliente(cif);
+        Vehiculo auxVe = this.catalogoVehiculo.buscarVehiculos(cif);
         if (auxCli != null && auxVe != null && auxVe.isDisponible() == true) {
             this.catalogoAlquiler.anadirAlquiler(new Alquileres(auxCli, auxVe, fechaInicio, duracionDias));
             auxVe.setDisponible(false);

@@ -11,6 +11,7 @@ import java.time.LocalDate;
  * @author Usuario
  */
 public class Alquileres {
+
     private int arquileID;
     private Cliente cliente;
     private Vehiculo vehiculo;
@@ -33,9 +34,11 @@ public class Alquileres {
     public int getArquilerID() {
         return arquileID;
     }
-    public void setAlquilerID(int alquilerID){
+
+    public void setAlquilerID(int alquilerID) {
         this.arquileID = alquilerID;
     }
+
     public int getDuracionDias() {
         return duracionDias;
     }
@@ -102,5 +105,5 @@ public class Alquileres {
         final Alquileres other = (Alquileres) obj;
         return this.arquileID == other.arquileID;
     }
-    
+
 }
