@@ -31,28 +31,22 @@ public class ej08 {
         String resultado;
         System.out.println("¿De que tamaño desea que sea el Array?");
         int tamanio = teclado.nextInt();
-        System.out.println("·············································································································");
+        System.out.println(" ");
         //Se crea array cuyo tamaño será el número introducido por el usuario.
         int arrayDeseado[] = new int[tamanio];
         //Una vez se tiene el array del tamaño deseado hay que rellenarlo
         //con valores numericos. 
+
         for (int i = 0; i < arrayDeseado.length; i++) {
-            arrayDeseado[i] = teclado.nextInt();
-        }
 
-        System.out.println(Arrays.toString(arrayDeseado));
+            System.out.println("Introduce el " + (i + 1) + " numero de *, por favor");
+            int numeroEntero = teclado.nextInt();
 
-        for (int j = 0; j < tamanio; j++) {
-            for (int i = 0; i < arrayDeseado.length; i++) {
-                System.out.println("*");
+            for (int j = 0; j < numeroEntero; j++) {
+
+                System.out.print(" * ");
+                System.out.print("\n");
             }
         }
-
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
-
 }
