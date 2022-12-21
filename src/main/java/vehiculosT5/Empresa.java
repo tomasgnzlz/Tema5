@@ -16,8 +16,8 @@ public class Empresa {
 
     private String cif;
     private String nombre;
-    private CatalogoVehiculos catalogoVehiculo;
-    private CatalogoClientes catalogoCliente;
+    private CatalogoVehiculosHerencia catalogoVehiculo;
+    private CatalogoClientesHerencia catalogoCliente;
     private CatalogoAlquiler catalogoAlquiler;
 
     public Empresa(String cif, String nombre) {
@@ -30,8 +30,8 @@ public class Empresa {
         this.cif = RandomStringUtils.randomAlphanumeric(8)
                 + RandomStringUtils.randomAlphabetic(1);
         this.nombre = nombre;
-        this.catalogoVehiculo = new CatalogoVehiculos(5);
-        this.catalogoCliente = new CatalogoClientes(5);
+        this.catalogoVehiculo = new CatalogoVehiculosHerencia(5);
+        this.catalogoCliente = new CatalogoClientesHerencia(5);
         this.catalogoAlquiler = new CatalogoAlquiler(5);
     }
 
@@ -54,19 +54,19 @@ public class Empresa {
         this.nombre = nombre;
     }
 
-    public CatalogoVehiculos getCatalogoVehiculo() {
+    public CatalogoVehiculosHerencia getCatalogoVehiculo() {
         return catalogoVehiculo;
     }
 
-    public void setCatalogoVehiculo(CatalogoVehiculos catalogoVehiculo) {
+    public void setCatalogoVehiculo(CatalogoVehiculosHerencia catalogoVehiculo) {
         this.catalogoVehiculo = catalogoVehiculo;
     }
-
-    public CatalogoClientes getCatalogoCliente() {
+    //COMO HE ELIMINADO LA CLASE CatalogoClientes me da error, pero solo he de poner CatalogoClientesHerencia. 
+    public CatalogoClientesHerencia getCatalogoCliente() {
         return catalogoCliente;
     }
 
-    public void setCatalogoCliente(CatalogoClientes catalogoCliente) {
+    public void setCatalogoCliente(CatalogoClientesHerencia catalogoCliente) {
         this.catalogoCliente = catalogoCliente;
     }
 
@@ -118,25 +118,29 @@ public class Empresa {
 
     public void registarCliente() {
         Cliente aux = new Cliente();
-        this.catalogoCliente.anadirCliente(aux);
+        //this.catalogoCliente.anadirCliente(aux);
+        this.catalogoCliente.anadirElemento(aux);
     }
 
     //Método para registrar clientes. 
     public void registrarCliente(Cliente aux) {
         //Registrar en la empresa al cliente carlos perez, no se pueden establecer
         //los datos del cliente de forma aleatoria. 
-        this.catalogoCliente.anadirCliente(aux);
+        //this.catalogoCliente.anadirCliente(aux);
+        this.catalogoCliente.anadirElemento(aux);
     }
 
     public void registarVehiculo() {
         Vehiculo aux = new Vehiculo();
-        this.catalogoVehiculo.anadirVehiculo(aux);
+        //this.catalogoVehiculo.anadirVehiculo(aux);
+        this.catalogoVehiculo.anadirElemento(aux);
     }
 
     //Método para registrar vehiculos.
     public void registrarVehiculo(Vehiculo aux) {
         //Lo mismo que con registrarClientes. 
-        this.catalogoVehiculo.anadirVehiculo(aux);
+        //this.catalogoVehiculo.anadirVehiculo(aux);
+        this.catalogoVehiculo.anadirElemento(aux);
     }
 
     //Método para buscar clientes dentro del catálogo. 
@@ -167,4 +171,6 @@ public class Empresa {
             a.getVehiculo().setDisponible(true);
         }
     }
+    
+    //Nuevas utilidades que pide el Ejercicio. 
 }

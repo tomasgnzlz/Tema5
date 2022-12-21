@@ -13,8 +13,9 @@ import java.time.LocalDate;
 public class AlquilerVehiculos {
      public static void main(String[] args) {
         
-        CatalogoVehiculos cv = new CatalogoVehiculos(5);
-        CatalogoClientes cc = new CatalogoClientes(5);
+        //CatalogoVehiculos cv = new CatalogoVehiculos(5);
+        CatalogoVehiculosHerencia cv = new CatalogoVehiculosHerencia(5);
+        CatalogoClientesHerencia cc = new CatalogoClientesHerencia(5);
          System.out.println(cv);
          System.out.println(cc);
          //ERROR EN EL MÉTODO BUSCAR CLIENTES. 

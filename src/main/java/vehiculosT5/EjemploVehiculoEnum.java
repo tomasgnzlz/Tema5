@@ -55,64 +55,70 @@ public class EjemploVehiculoEnum {
 //        System.out.println("MOSTRAR CATALOGO DE VEHICULOS");
 //        catalogo .mostrarCatalogo();
 
-            CatalogoVehiculos catalogo = new CatalogoVehiculos(5);
-            System.out.println("Nº de vehiculos del catalogo " + catalogo.getNumeroVehiculos());
-            System.out.println(catalogo);
-            
-            System.out.println(" ");
-            
-            catalogo.borrarVehiculo(catalogo.getListaVehiculos()[3]);
-            System.out.println("Despues de borrar el vehiculo de la posición 3");
-            System.out.println("Nº vehículos del catálogo" + catalogo.getNumeroVehiculos());
-            System.out.println(catalogo);
-            
-            System.out.println("  ");
-            
-            Vehiculo aux = new Vehiculo();
-            aux.setBastidor("12344321");
-            catalogo.anadirVehiculo(new Vehiculo());
-            System.out.println("Despues de añadir el vehiculo de la posición ");
-            System.out.println("Nº vehículos del catálogo" + catalogo.getNumeroVehiculos());
-            System.out.println(catalogo);
-            System.out.println("  ·········");
-            aux.setBastidor("0000000");
-            catalogo.anadirVehiculo(aux);
-            System.out.println("Despues de borrar el vehiculo de la posición 3");
-            System.out.println("Nº vehículos del catálogo" + catalogo.getNumeroVehiculos());
-            System.out.println(catalogo);
-            
-            
-            System.out.println(" ");
-            System.out.println("·································································································································");
-            System.out.println("·········· EJEMPLOS Y PRUEBAS CON LA CLASE CLIENTES Y CATÁLOGO CLIENTE ··········");
-            System.out.println("·································································································································");
-            System.out.println(" ");
-            
-            
-            CatalogoClientes catalogoClientes = new CatalogoClientes(5);
-            System.out.println("Nº de Clientes del catalogo " + catalogoClientes.getNumeroClientes());
-            System.out.println(catalogoClientes);
-            
-            System.out.println(" ");
-            
-            catalogoClientes.borrarCliente(catalogoClientes.getListaClientes()[3]);
-            System.out.println("Despues de borrar el Cliente de la posición 3");
-            System.out.println("Nº Clientes del catálogo" + catalogoClientes.getNumeroClientes());
-            System.out.println(catalogoClientes);
-            
-            System.out.println("  ");
-            
-            Cliente c1 = new Cliente();
-            //hemos borrado añadirClientes
-            //catalogoClientes.añadirClientes(new Cliente());
-            System.out.println("Despues de añadir el Cliente de la posición ");
-            System.out.println("Nº Clientes del catálogo" + catalogoClientes.getNumeroClientes());
-            System.out.println(catalogoClientes);
-            System.out.println("  ·········");
-            //catalogoClientes.añadirClientes(c1);
-            System.out.println("Despues de borrar el Cliente de la posición 3");
-            System.out.println("Nº Cliente del catálogo" + catalogoClientes.getNumeroClientes());
-            System.out.println(catalogoClientes);
+
+//                LO ELIMINO
+
+
+
+//
+//            CatalogoVehiculos catalogo = new CatalogoVehiculos(5);
+//            System.out.println("Nº de vehiculos del catalogo " + catalogo.getNumeroVehiculos());
+//            System.out.println(catalogo);
+//            
+//            System.out.println(" ");
+//            
+//            catalogo.borrarVehiculo(catalogo.getListaVehiculos()[3]);
+//            System.out.println("Despues de borrar el vehiculo de la posición 3");
+//            System.out.println("Nº vehículos del catálogo" + catalogo.getNumeroVehiculos());
+//            System.out.println(catalogo);
+//            
+//            System.out.println("  ");
+//            
+//            Vehiculo aux = new Vehiculo();
+//            aux.setBastidor("12344321");
+//            catalogo.anadirVehiculo(new Vehiculo());
+//            System.out.println("Despues de añadir el vehiculo de la posición ");
+//            System.out.println("Nº vehículos del catálogo" + catalogo.getNumeroVehiculos());
+//            System.out.println(catalogo);
+//            System.out.println("  ·········");
+//            aux.setBastidor("0000000");
+//            catalogo.anadirVehiculo(aux);
+//            System.out.println("Despues de borrar el vehiculo de la posición 3");
+//            System.out.println("Nº vehículos del catálogo" + catalogo.getNumeroVehiculos());
+//            System.out.println(catalogo);
+//            
+//            
+//            System.out.println(" ");
+//            System.out.println("·································································································································");
+//            System.out.println("·········· EJEMPLOS Y PRUEBAS CON LA CLASE CLIENTES Y CATÁLOGO CLIENTE ··········");
+//            System.out.println("·································································································································");
+//            System.out.println(" ");
+//            
+//            
+//            CatalogoClientes catalogoClientes = new CatalogoClientes(5);
+//            System.out.println("Nº de Clientes del catalogo " + catalogoClientes.getNumeroClientes());
+//            System.out.println(catalogoClientes);
+//            
+//            System.out.println(" ");
+//            
+//            catalogoClientes.borrarCliente(catalogoClientes.getListaClientes()[3]);
+//            System.out.println("Despues de borrar el Cliente de la posición 3");
+//            System.out.println("Nº Clientes del catálogo" + catalogoClientes.getNumeroClientes());
+//            System.out.println(catalogoClientes);
+//            
+//            System.out.println("  ");
+//            
+//            Cliente c1 = new Cliente();
+//            //hemos borrado añadirClientes
+//            //catalogoClientes.añadirClientes(new Cliente());
+//            System.out.println("Despues de añadir el Cliente de la posición ");
+//            System.out.println("Nº Clientes del catálogo" + catalogoClientes.getNumeroClientes());
+//            System.out.println(catalogoClientes);
+//            System.out.println("  ·········");
+//            //catalogoClientes.añadirClientes(c1);
+//            System.out.println("Despues de borrar el Cliente de la posición 3");
+//            System.out.println("Nº Cliente del catálogo" + catalogoClientes.getNumeroClientes());
+//            System.out.println(catalogoClientes);
     }
 
 }

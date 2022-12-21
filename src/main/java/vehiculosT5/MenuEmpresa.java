@@ -87,7 +87,9 @@ public class MenuEmpresa {
                                 Cliente aux = new Cliente();
                                 aux.setNIF(clienteAux);
                                 if (e1.getCatalogoCliente().buscarCliente(clienteAux) != null) {
-                                    e1.getCatalogoCliente().borrarCliente(aux);
+                                    //e1.getCatalogoCliente().borrarCliente(aux);
+                                    //Como he eliminado la clase Cliente me da error. 
+                                    e1.getCatalogoCliente().borrarElemento(aux);
                                     System.out.println("Catálogo actualizado: " + e1.getCatalogoCliente().toString());
                                 } else {
                                     System.out.println("Error, ha introducido el dato incorrecto.");
@@ -120,7 +122,12 @@ public class MenuEmpresa {
                         switch (opcionMenu) {
                             case "1" -> {
                                 Vehiculo aux = new Vehiculo();
-                                e1.getCatalogoVehiculo().anadirVehiculo(aux);
+                                //e1.getCatalogoVehiculo().anadirVehiculo(aux);
+                                /*
+                                    ESTE ERROR ME VA A SALIR EN VARIAS LINEAS DEL MENÚ, SOLO 
+                                    HAY QUE CAMBIAR ELEMENTO POR VEHICULO. 
+                                */
+                                e1.getCatalogoVehiculo().anadirElemento(aux);
                                 System.out.println("Vehiculo Añadido " + e1.getCatalogoVehiculo().toString());
                             }
                             case "2" -> {
@@ -129,7 +136,8 @@ public class MenuEmpresa {
                                 Vehiculo aux1 = new Vehiculo();
                                 aux1.setBastidor(vehiculoAux);
                                 if (e1.getCatalogoVehiculo().buscarVehiculos(vehiculoAux) != null) {
-                                    e1.getCatalogoVehiculo().borrarVehiculo(aux1);
+                                    //e1.getCatalogoVehiculo().borrarVehiculo(aux1);
+                                    e1.getCatalogoVehiculo().borrarElemento(aux1);
                                     System.out.println("Catálogo de Vehiculos actualizado: " + e1.getCatalogoVehiculo().toString());
                                 } else {
                                     System.out.println("Nº de bastidor no encontrado");
