@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ejerciciosEstructurasAlmacenamiento;
+package ejercicio24;
 
 import java.util.List;
 import java.util.Objects;
@@ -21,6 +21,14 @@ public class Cancion {
     //Constructor predeterminado. 
     public Cancion() {
     }
+
+    //Constructor parametrizado. 
+    public Cancion(String nombre, String generi, double duración) {
+        this.nombre = nombre;
+        this.generi = generi;
+        this.duración = duración;
+    }
+    
 
     //ToString. 
     @Override
@@ -89,9 +97,6 @@ public class Cancion {
         return Objects.equals(this.generi, other.generi);
     }
     
-    //MÉTODOS QUE PIDE EL EJERCICIO. 
-    public void numeroCanciones(){
-        //Este método devuelve el nº de canciones de la lista. 
-    }
+    
     
 }
