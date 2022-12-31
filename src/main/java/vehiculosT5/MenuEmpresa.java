@@ -5,7 +5,9 @@
 package vehiculosT5;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -189,7 +191,30 @@ public class MenuEmpresa {
             //El bucle se repetirá hasta que la opción sea 4. 
             System.out.println("Usted ha seleccionado terminar el programa");
         } while (!opcionMenu.equalsIgnoreCase("4"));
+        
+        
+        //MÉTODOS DE LA CLASE EMPRESA TAREA 5C. 
+        
+        
+        List<Alquileres> alquileresUnCliente = new ArrayList<>();
+                                Cliente aux = new Cliente();
+                                System.out.println("Indique el nif del cliente");
+                                clienteAux = teclado.nextLine();
+                                aux.setNIF(clienteAux);
+                                //alquileresUnCliente = rentAcar.getCatalogoAlquileres().buscarAlquilerNif(clienteAux);
+                                alquileresUnCliente = e1.getCatalogoAlquiler().buscarAlquilerNif(clienteAux);
+                                if (alquileresUnCliente.size() > 0) {
 
+                                    System.out.println(alquileresUnCliente.toString());
+                                } else {
+                                    //En caso de no encopntrar alquileres de ese cliente. 
+                                    System.out.println("Error");
+                                }
+                                //Los demas métodos son identicos, solo cambia la utilidad de los mismos. 
+                                
+                                
+        
+        
     }
 
     //Metodo para controlar los valores que el usario introduzca por teclado. 

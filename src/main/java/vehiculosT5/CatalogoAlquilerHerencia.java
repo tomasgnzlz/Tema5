@@ -4,6 +4,9 @@
  */
 package vehiculosT5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author tomas
@@ -28,5 +31,18 @@ public class CatalogoAlquilerHerencia extends Catalogo<Alquileres> {
         int posicion = buscarElemento(aux);
         //return (posicion >= 0) ? this.listaAlquiler[posicion] : null;
         return (posicion >= 0) ? this.lista.get(id) : null;
+    }
+     public List<Alquileres> buscarAlquilerNif(String nif) {
+        List<Alquileres> listaClientes = new ArrayList<Alquileres>();
+
+        Cliente clienteAux = new Cliente();
+        clienteAux.setNIF(nif);
+
+        for (int i = 0; i < this.lista.size(); i++) {
+            if (this.lista.get(i).getCliente().equals(clienteAux)) {
+                listaClientes.add(this.lista.get(i));
+            }
+        }
+        return listaClientes;
     }
 }

@@ -15,6 +15,7 @@ import java.util.List;
 public class Catalogo<T> {// T, K o U --> indica que va a ir un tipo de dato: OBJETO. 
 
     protected List<T> lista;
+    //jcbauba
 
     /*El mismo catálogo de vehiculo lo copio y lo dejo ahi, pero si que hay que
     ir cambiando una serie de nombres y variables para que no haya errores. 

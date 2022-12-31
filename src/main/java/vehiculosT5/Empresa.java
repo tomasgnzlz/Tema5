@@ -6,6 +6,8 @@ package vehiculosT5;
 
 import java.util.Objects;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
@@ -18,7 +20,7 @@ public class Empresa {
     private String nombre;
     private CatalogoVehiculosHerencia catalogoVehiculo;
     private CatalogoClientesHerencia catalogoCliente;
-    private CatalogoAlquiler catalogoAlquiler;
+    private CatalogoAlquilerHerencia catalogoAlquiler;
 
     public Empresa(String cif, String nombre) {
         this.cif = cif;
@@ -32,7 +34,7 @@ public class Empresa {
         this.nombre = nombre;
         this.catalogoVehiculo = new CatalogoVehiculosHerencia(5);
         this.catalogoCliente = new CatalogoClientesHerencia(5);
-        this.catalogoAlquiler = new CatalogoAlquiler(5);
+        this.catalogoAlquiler = new CatalogoAlquilerHerencia(5);
     }
 
     public Empresa() {
@@ -61,6 +63,7 @@ public class Empresa {
     public void setCatalogoVehiculo(CatalogoVehiculosHerencia catalogoVehiculo) {
         this.catalogoVehiculo = catalogoVehiculo;
     }
+
     //COMO HE ELIMINADO LA CLASE CatalogoClientes me da error, pero solo he de poner CatalogoClientesHerencia. 
     public CatalogoClientesHerencia getCatalogoCliente() {
         return catalogoCliente;
@@ -70,11 +73,11 @@ public class Empresa {
         this.catalogoCliente = catalogoCliente;
     }
 
-    public CatalogoAlquiler getCatalogoAlquiler() {
+    public CatalogoAlquilerHerencia getCatalogoAlquiler() {
         return catalogoAlquiler;
     }
 
-    public void setCatalogoAlquiler(CatalogoAlquiler catalogoAlquiler) {
+    public void setCatalogoAlquiler(CatalogoAlquilerHerencia catalogoAlquiler) {
         this.catalogoAlquiler = catalogoAlquiler;
     }
 
@@ -159,7 +162,7 @@ public class Empresa {
         Cliente auxCli = this.catalogoCliente.buscarCliente(cif);
         Vehiculo auxVe = this.catalogoVehiculo.buscarVehiculos(cif);
         if (auxCli != null && auxVe != null && auxVe.isDisponible() == true) {
-            this.catalogoAlquiler.anadirAlquiler(new Alquileres(auxCli, auxVe, fechaInicio, duracionDias));
+            this.catalogoAlquiler.anadirElemento(new Alquileres(auxCli, auxVe, fechaInicio, duracionDias));
             auxVe.setDisponible(false);
             return true;
         }
@@ -171,6 +174,79 @@ public class Empresa {
             a.getVehiculo().setDisponible(true);
         }
     }
+
+    //Nuevos métodos que pide el Ejercicio 5C. 
+    //Método que devuelve una lista con todos Alquileres de un cliente, usando su NIF.
+    /*
+    public List devolverAlquilerClienteNif(String nif) {
+        List<Alquileres> listaAlquileresCliente = new ArrayList<Alquileres>();
+        Alquileres auxalquiler = new Alquileres();
+        Cliente auxCliente = new Cliente();
+        auxCliente.setNIF(nif);
+        auxalquiler.setCliente(auxCliente);
+        for (int i = 0; i < this.catalogoAlquiler.getNumeroElementos(); i++) {
+            if (this.catalogoAlquiler.equals(this.catalogoCliente.buscarCliente(nif))) {
+                listaAlquileresCliente.add(CatalogoAlquilerHerencia);
+            }
+        }
+    }
+     */
+    //Método que devuelve una lista con todos Alquileres de un cliente, usando su Nº bastidor.
+    public ArrayList devolverAlquilerVehiculosBastidor(String bastidor) {
+
+        ArrayList<Alquileres> alquileresBastidor = new ArrayList();
+
+        for (int i = 0; i < this.catalogoVehiculo.getNumeroElementos(); i++) {
+
+            if (this.catalogoAlquiler.equals(this.catalogoCliente.buscarCliente(cif))) {
+
+                alquileresBastidor.add(catalogoAlquiler.lista.get(i));
+            }
+        }
+        //Devuelvo la lista con el elemento añadido. 
+        return alquileresBastidor;
+    }
+
+    //Borrar alquiler.
+    public void borrarAlquiler(int alquilerPorId) {
+        this.catalogoAlquiler.lista.remove(alquilerPorId);
+    }
+
+    //Borrar cliente. 
+    public void borrarClienteSinAlq(Cliente c) {
+
+        Alquileres aux = new Alquileres();
+        aux.setCliente(c);
+        if (this.catalogoAlquiler.buscarElemento(aux) < 0) {
+            catalogoCliente.borrarElemento(c);
+        } else {
+            //En este caso el cliente tendría algun alquiler en ese momento 
+            //Por lo que no se lo podría eliminar del catálogo. 
+        }
+
+    }
+    //Borrar Vehiculo.
+    public void borrarVehiculoV(Vehiculo v) {
+        Alquileres aux = new Alquileres();
+        aux.setVehiculo(v);
+        if (this.catalogoAlquiler.buscarElemento(aux) < 0) {
+            catalogoVehiculo.borrarElemento(v);
+        } else {
+            //En este caso el cliente tendría algun alquiler en ese momento 
+            //Por lo que no se lo podría eliminar del catálogo. 
+            System.out.println("NO");
+        }
+    }
     
-    //Nuevas utilidades que pide el Ejercicio. 
+    //Lista con los vehiculos con la fecha del día.
+    public ArrayList devolverListaVehiculos(LocalDate fecha){
+        ArrayList<Vehiculo> devolverListaVehiculos = new ArrayList();
+        for (Alquileres alqAux: this.catalogoAlquiler.lista) {
+            devolverListaVehiculos.add(alqAux.getVehiculo());
+        }
+        //Devuvlvo la lista con todos los vehiculos. 
+        return devolverListaVehiculos;
+    }
+    
+
 }
