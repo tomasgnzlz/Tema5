@@ -27,8 +27,13 @@ public class AlquilerVehiculos {
         System.out.println("Vehiculo    "+v);
         Alquileres a = new Alquileres(c, v, LocalDate.now(), 8);
         System.out.println(a);
-        CatalogoAlquiler ca = new CatalogoAlquiler(5);
-       ca.anadirAlquiler(a);
+        /*
+        De catalogoAlquiler pasa a CatalogoAlquilerHerencia, ya que utilizamos 
+        una clase genérica con métodos genéricos, y una clase herencia de esta
+        que tiene los métodos exclusivos de los alquileres, por ejemplo. 
+        */
+        CatalogoAlquilerHerencia ca = new CatalogoAlquilerHerencia(5);
+       ca.anadirElemento(a);
         System.out.println("Lista de alquileres");
         System.out.println(ca);
     }

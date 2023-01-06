@@ -17,5 +17,6 @@ public class Pruebas {
         
         Cancion c1 = new Cancion("ns", "ns", 3.55);
         System.out.println(c1);
+        
     }    
 }
