@@ -39,13 +39,13 @@ public class ej08 {
 
         for (int i = 0; i < arrayDeseado.length; i++) {
 
-            System.out.println("Introduce el " + (i + 1) + " numero de *, por favor");
+            System.out.println("\n Introduce el " + (i + 1) + " numero de *, por favor");
             int numeroEntero = teclado.nextInt();
 
             for (int j = 0; j < numeroEntero; j++) {
 
                 System.out.print(" * ");
-                System.out.print("\n");
+                
             }
         }
     }

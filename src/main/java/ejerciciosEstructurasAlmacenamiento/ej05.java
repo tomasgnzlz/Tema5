@@ -49,7 +49,6 @@ public class ej05 {
     public static int leerNumerosEnteros() {
         int numZ = 0;
         boolean repetir = true;
-
         do {
             System.out.println("Introduce el numero entero");
             //Controlar excepciones.
