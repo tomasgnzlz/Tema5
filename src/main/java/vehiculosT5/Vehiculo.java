@@ -13,7 +13,6 @@ import org.apache.commons.lang3.RandomStringUtils;
  * @author tomas
  */
 public class Vehiculo {
-
     private String bastidor;
     private String matricula;
     private Color color;

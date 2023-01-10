@@ -23,6 +23,7 @@ public class MenuEmpresa {
         Scanner teclado = new Scanner(System.in);
         String opcionMenu = "";
         int duracionAlquiler;
+        
         /*
         Creo un menu del proyecto, para cada entidad,  con el que se podrá acceder a todas las 
         funcionalidades del proyecto. 
@@ -62,6 +63,15 @@ public class MenuEmpresa {
         para ver el historial de alquileres por ejemplo. 
         Estas opciones van a depender de los valores que el usuario vaya introduciendo. 
          */
+        
+        
+        
+        
+        
+        
+        
+        
+        
         do {
             System.out.println(menuProyecto);
             System.out.println("Introduzca una opción: ");
@@ -69,13 +79,13 @@ public class MenuEmpresa {
 
             switch (opcionMenu) {
                 case "1" -> {
-                     System.out.println("USTED HA SELECCIONADO: Clientes");
+                    System.out.println("USTED HA SELECCIONADO: Clientes");
                     do {
                         System.out.println(menuClientes);
                         System.out.println("Escoga una opción");
                         opcionMenu = teclado.nextLine();
                         switch (opcionMenu) {
-                            case "1" -> {                               
+                            case "1" -> {
                                 /*
                                 Una vez realizado el registro del cliente, 
                                 podemos verlo dentro de nuestro catálogo de Clientes. 
@@ -115,7 +125,7 @@ public class MenuEmpresa {
                     } while (!opcionMenu.contentEquals("5"));
                 }
                 case "2" -> {
-                     System.out.println("USTED HA SELECCIONADO: Vehiculo");
+                    System.out.println("USTED HA SELECCIONADO: Vehiculo");
                     do {
                         //Se enseña el menú en función a la opción escogida. 
                         System.out.println(menuVehiculos);
@@ -128,7 +138,7 @@ public class MenuEmpresa {
                                 /*
                                     ESTE ERROR ME VA A SALIR EN VARIAS LINEAS DEL MENÚ, SOLO 
                                     HAY QUE CAMBIAR ELEMENTO POR VEHICULO. 
-                                */
+                                 */
                                 e1.getCatalogoVehiculo().anadirElemento(aux);
                                 System.out.println("Vehiculo Añadido " + e1.getCatalogoVehiculo().toString());
                             }
@@ -193,28 +203,29 @@ public class MenuEmpresa {
         } while (!opcionMenu.equalsIgnoreCase("4"));
         
         
-        //MÉTODOS DE LA CLASE EMPRESA TAREA 5C. 
         
         
-        List<Alquileres> alquileresUnCliente = new ArrayList<>();
-                                Cliente aux = new Cliente();
-                                System.out.println("Indique el nif del cliente");
-                                clienteAux = teclado.nextLine();
-                                aux.setNIF(clienteAux);
-                                //alquileresUnCliente = rentAcar.getCatalogoAlquileres().buscarAlquilerNif(clienteAux);
-                                alquileresUnCliente = e1.getCatalogoAlquiler().buscarAlquilerNif(clienteAux);
-                                if (alquileresUnCliente.size() > 0) {
+        
+        
+//        
+////----------------------------------------------------------------------------------------------------------------------------------------
+//        //MÉTODOS DE LA CLASE EMPRESA TAREA 5C. 
+//        List<Alquileres> alquileresUnCliente = new ArrayList<>();
+//        Cliente aux = new Cliente();
+//        System.out.println("Indique el nif del cliente");
+//        clienteAux = teclado.nextLine();
+//        aux.setNIF(clienteAux);
+//        alquileresUnCliente = e1.getCatalogoAlquiler().buscarAlquilerNif(clienteAux);
+//        if (alquileresUnCliente.size() > 0) {
+//
+//            //Muetra la lista de alquileres que haya con dicho cliente. 
+//            System.out.println(alquileresUnCliente.toString());
+//        } else {
+//            //En caso de no encontrar alquileres de ese cliente. 
+//            System.out.println("Error");
+//        }
+//        //Los demas métodos son identicos, solo cambia la utilidad de los mismos. 
 
-                                    System.out.println(alquileresUnCliente.toString());
-                                } else {
-                                    //En caso de no encopntrar alquileres de ese cliente. 
-                                    System.out.println("Error");
-                                }
-                                //Los demas métodos son identicos, solo cambia la utilidad de los mismos. 
-                                
-                                
-        
-        
     }
 
     //Metodo para controlar los valores que el usario introduzca por teclado. 

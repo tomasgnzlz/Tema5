@@ -18,6 +18,7 @@ public class CatalogoVehiculosHerencia extends Catalogo<Vehiculo> {
         //Esto lo pongo para que el super llama al constructor de la clase padre.
         //La clase padre es catálogo. 
         for (int i = 0; i < tamanio; i++) {
+            //this.anadirElemento(new Vehiculo());
             this.anadirElemento(new Vehiculo());
         }
     }

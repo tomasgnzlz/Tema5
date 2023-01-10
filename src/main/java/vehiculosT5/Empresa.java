@@ -174,10 +174,12 @@ public class Empresa {
             a.getVehiculo().setDisponible(true);
         }
     }
-
+    //---------------------------------------------------------------------------------------------------------------------------------------------
     //Nuevos métodos que pide el Ejercicio 5C. 
-    //Método que devuelve una lista con todos Alquileres de un cliente, usando su NIF.
-    /*
+
+    //1. Método que devuelve una lista con todos Alquileres de un cliente, usando su NIF.
+    //NO ME SALE. 
+    
     public List devolverAlquilerClienteNif(String nif) {
         List<Alquileres> listaAlquileresCliente = new ArrayList<Alquileres>();
         Alquileres auxalquiler = new Alquileres();
@@ -186,12 +188,17 @@ public class Empresa {
         auxalquiler.setCliente(auxCliente);
         for (int i = 0; i < this.catalogoAlquiler.getNumeroElementos(); i++) {
             if (this.catalogoAlquiler.equals(this.catalogoCliente.buscarCliente(nif))) {
-                listaAlquileresCliente.add(CatalogoAlquilerHerencia);
+                listaAlquileresCliente.add(auxalquiler);
             }
         }
+        return null;
     }
-     */
-    //Método que devuelve una lista con todos Alquileres de un cliente, usando su Nº bastidor.
+     
+    
+    
+    
+    
+    //2. Método que devuelve una lista con todos Alquileres de un cliente, usando su Nº bastidor.
     public ArrayList devolverAlquilerVehiculosBastidor(String bastidor) {
 
         ArrayList<Alquileres> alquileresBastidor = new ArrayList();
@@ -207,46 +214,47 @@ public class Empresa {
         return alquileresBastidor;
     }
 
-    //Borrar alquiler.
+    //3. Borrar alquiler dado un alquiler.
     public void borrarAlquiler(int alquilerPorId) {
         this.catalogoAlquiler.lista.remove(alquilerPorId);
     }
 
-    //Borrar cliente. 
+    //4. Borrar cliente del catálogo de clientes
     public void borrarClienteSinAlq(Cliente c) {
 
         Alquileres aux = new Alquileres();
         aux.setCliente(c);
         if (this.catalogoAlquiler.buscarElemento(aux) < 0) {
-            catalogoCliente.borrarElemento(c);
-        } else {
             //En este caso el cliente tendría algun alquiler en ese momento 
             //Por lo que no se lo podría eliminar del catálogo. 
+        } else {
+            catalogoCliente.borrarElemento(c);
+            //En cuanto termine el periódo de su alquiler, se borra el mismo. 
         }
 
     }
-    //Borrar Vehiculo.
+
+    //5. Borrar Vehiculo del catálogo de vehiculos. 
     public void borrarVehiculoV(Vehiculo v) {
         Alquileres aux = new Alquileres();
         aux.setVehiculo(v);
         if (this.catalogoAlquiler.buscarElemento(aux) < 0) {
-            catalogoVehiculo.borrarElemento(v);
-        } else {
-            //En este caso el cliente tendría algun alquiler en ese momento 
+            //En este caso el cliente tendría algun alquiler en ese momento
             //Por lo que no se lo podría eliminar del catálogo. 
             System.out.println("NO");
+        } else {
+            catalogoVehiculo.borrarElemento(v);
         }
     }
-    
-    //Lista con los vehiculos con la fecha del día.
-    public ArrayList devolverListaVehiculos(LocalDate fecha){
+
+    //6. Lista con los vehiculos con la fecha del día en el que se pide la misma. 
+    public ArrayList devolverListaVehiculos(LocalDate fecha) {
         ArrayList<Vehiculo> devolverListaVehiculos = new ArrayList();
-        for (Alquileres alqAux: this.catalogoAlquiler.lista) {
+        for (Alquileres alqAux : this.catalogoAlquiler.lista) {
             devolverListaVehiculos.add(alqAux.getVehiculo());
         }
         //Devuvlvo la lista con todos los vehiculos. 
         return devolverListaVehiculos;
     }
-    
 
 }
