@@ -28,19 +28,11 @@ public class EjercicioVecinas {
         List<Casillas> listaCasillas = casillaVecinas(1, 1, matriz);
         for (Casillas casilla : listaCasillas) {
             System.out.println(casilla);
-            
         }
-        
-        mostrar(matriz);
-        List<Integer> diagonal = elementosDiagonalPrincipal(matriz);
-        diagonal.forEach(System.out::println);
-        
-        System.out.println(Arrays.toString(elementosDiagonalSecundaria(matriz)));
     }
 
     //Método mostrar matrizVico. 
     public static void mostrar(int[][] m) {
-
         for (int[] fila : m) { //Por cada fila de la matriz m
             for (int valor : fila) { //Por cada elemento que hay en la fila
                 System.out.print(valor + " ");
@@ -49,6 +41,7 @@ public class EjercicioVecinas {
         }
     }
 
+    //Método que devuelve una lista de los elementos vecinos a un elemento en concreto. 
     public static List<Casillas> casillaVecinas(int fila, int columna, int[][] m) {
         List<Casillas> lista = new ArrayList<>();
 
@@ -69,7 +62,7 @@ public class EjercicioVecinas {
                             }
                             System.out.print("Casilla " + i + " " + j);
                             //
-                            lista.add(new Casillas(i,j,m[i][j]));
+                            lista.add(new Casillas(i, j, m[i][j]));
                         }
                     }
                 }
@@ -82,41 +75,9 @@ public class EjercicioVecinas {
     //Métodos para comprobar si es válida o no. 
     public static boolean filaValida(int fila, int[][] m) {
         return fila >= 0 && fila > m.length;
-
     }
 
     public static boolean columnaValida(int columna, int[][] m) {//No es necesario que le pase las filas xq ya sebemos que las matrices van a ser cuadradas. 
         return columna >= 0 && columna > m.length;
-
-    }
-
-    /*
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     */
-    //Método para mostrar los elementos de la diagonal principal de la matriz. 
-    public static List<Integer> elementosDiagonalPrincipal(int[][] matriz) {
-        List<Integer> lista = new ArrayList<>();
-        for (int i = 0; i < matriz.length; i++) {
-            lista.add(matriz[i][i]);
-        }
-        return lista;
-    }
-
-    //Método para mostrar los elementos de la diagonal secundaria de la matriz. 
-    public static int[] elementosDiagonalSecundaria(int[][] m) {
-        int[] array = new int[m.length];
-        for (int i = 0; i < m.length; i++) {
-            array[i] = m[i][m.length - 1 - i];
-        }
-        return array;
     }
 }

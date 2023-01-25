@@ -9,5 +9,6 @@ package ejerciciosMatrices;
  * @author tomas
  */
 public record Casillas(int fila, int columna, int valor) {
+    //Se crea está clase para obtener tanto las coordenadas del valor que buscamos como el valor del mismo.
 
 }
