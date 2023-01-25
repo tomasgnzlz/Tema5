@@ -10,6 +10,10 @@ import java.util.Objects;
  *
  * @author tomas
  */
+/*
+
+edkinrtv
+*/
 public class Pais implements Comparable<Pais> {
 
     private String nombre;
