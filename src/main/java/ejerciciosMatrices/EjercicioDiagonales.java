@@ -4,6 +4,8 @@
  */
 package ejerciciosMatrices;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,16 +20,131 @@ public class EjercicioDiagonales {
      */
     public static void main(String[] args) {
 
-        int dimensionMatriz;
-        dimensionMatriz = pedirValoresMatrizSinErrores();
-        int[][] matriz = new int[dimensionMatriz][dimensionMatriz];
-        rellenarMatricesAutomatico(matriz);
-        System.out.println("········· NORMAL ·········");
-        imprimirMatrizMatrices(matriz);
-        System.out.println("········· MATRIZ SOLO CON SUS DIAGONALES ·········");
-
+//        int dimensionMatriz;
+//        dimensionMatriz = pedirValoresMatrizSinErrores();
+//        int[][] matriz = new int[dimensionMatriz][dimensionMatriz];
+//        rellenarMatricesAutomatico(matriz);
+//        System.out.println("········· NORMAL ·········");
+//        imprimirMatrizMatrices(matriz);
+//        System.out.println("········· MATRIZ SOLO CON SUS DIAGONALES ·········");
+//        recorrerDiagonalPrincipal(matriz);
+//        System.out.println("\n");
+//        recorrerDiagonalSecundaria(matriz);
+//······················································································································
+        int[][] matriz = {
+            {4, 6, 3, 2},
+            {5, 9, 7, 6},
+            {4, 4, 1, 1},
+            {0, 3, 6, 8}
+        };
+        
+        mostrar(matriz);
+        List<Integer> diagonal = elementosDiagonalPrincipal(matriz);
+        diagonal.forEach(System.out::println);
+        
     }
 
+    //Método mostrar matrizVico. 
+    public static void mostrar(int[][] m) {
+
+        for (int[] fila : m) { //Por cada fila de la matriz m
+            for (int valor : fila) { //Por cada elemento que hay en la fila
+                System.out.println(valor + "");
+            }
+            System.out.println(" ");
+        }
+    }
+
+    //Método para mostrar los elementos de la diagonal principal de la matriz. 
+    public static List<Integer> elementosDiagonalPrincipal(int[][] matriz) {
+        List<Integer> lista = new ArrayList<>();
+        for (int i = 0; i < matriz.length; i++) {
+            lista.add(matriz[i][i]);
+        }
+        return lista;
+    }
+    //Método para mostrar los elementos de la diagonal secundaria de la matriz. 
+    public static int[] elementosDiagonalSecundaria( int[][] m){
+        int [] array = new int[m.length];
+        for (int i = 0; i < m.length; i++) {
+            array[i] = m[i][m.length-1-i];
+        }
+        return array;
+    }
+    
+    public List<Casillas> casillaVecinas(int fila, int columna, int [][] m){
+        List<Casillas> lista = new ArrayList<>();
+        
+        //Comprobamos filas y columnas, para que sean váidas. 
+        if (filaValida(fila, m)&& columnaValida(columna, m)) {
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        return lista;
+    }
+    
+    //Métodos para comprobar si es válida o no. 
+    public static boolean filaValida(int fila, int [][] m){
+        return fila>=0 && fila>m.length;
+        
+    }
+    
+     public static boolean columnaValida(int columna, int [][] m){//No es necesario que le pase las filas xq ya sebemos que las matrices van a ser cuadradas. 
+        return columna>=0 && columna>m.length;
+        
+    }
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+     */
     //Método para pedir las dimensiones de la matriz. 
     private static int pedirValoresMatrizSinErrores() {
 
@@ -51,7 +168,7 @@ public class EjercicioDiagonales {
     }
 
     //Método  para imprimir las matrices. 
-    private static void imprimirMatrizMatrices(int[][] matriz) {
+    private static void imprimirMatriz(int[][] matriz) {
         /*
         Con el primer bucle for recorro el primer array y con el otro aray 
         recorro la parte de la matriz que me queda por recorrer. 
@@ -65,13 +182,27 @@ public class EjercicioDiagonales {
     }
 
     //Método para recorrer solo las diagonales de la matriz.
-    private static void recorrerDiagonalesMatriz(int[][] matrizX) {
+    private static void recorrerDiagonalPrincipal(int[][] matrizX) {
+        int a;
         for (int i = 0; i < matrizX.length; i++) {
-            
-            
-            for (int j = 0; j < matrizX.length; j++) {
+            a = matrizX[i][i];
+            System.out.println(a);
 
-            }
+            //Coordenadas de dichos numeros. 
+//            for (int j = 0; j < matrizX.length; j++) {
+//
+//                System.out.println("Número: " + matrizX[i][j]);
+//            }
+        }
+    }
+
+    //Método para recorrer solo las diagonales de la matriz.
+    private static void recorrerDiagonalSecundaria(int[][] matrizX) {
+        int a;
+        for (int i = 0; i < matrizX.length; i++) {
+            a = matrizX[i][((matrizX.length - 1) - i)];
+            System.out.println(a + " ");
+
         }
     }
 
