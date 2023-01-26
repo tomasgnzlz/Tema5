@@ -10,8 +10,10 @@ import java.util.Objects;
  *
  * @author tomas
  */
-
+    //Me permite que la clase se pueda ordenar por nombre.
+    //Si en el CompareTo le meto los demas atributos me dejara comparar con los demas atributos/criterios
 public class Pais implements Comparable<Pais> {
+    
 
     private String nombre;
     private long poblacion;  //Millones habitantes
@@ -24,6 +26,11 @@ public class Pais implements Comparable<Pais> {
         this.superficie = superficie;
         this.moneda = moneda;
     }
+
+    public Pais() {
+    }
+    
+    
 
     //Getters & Setters. 
     public String getNombre() {
