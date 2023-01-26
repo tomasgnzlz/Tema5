@@ -10,15 +10,12 @@ import java.util.Objects;
  *
  * @author tomas
  */
-/*
 
-edkinrtv
-*/
 public class Pais implements Comparable<Pais> {
 
     private String nombre;
-    private long poblacion; //mill hab
-    private long superficie; //Km2
+    private long poblacion;  //Millones habitantes
+    private long superficie; //Km²
     private String moneda;
 
     public Pais(String nombre, long poblacion, long superficie, String moneda) {
@@ -61,7 +58,7 @@ public class Pais implements Comparable<Pais> {
         this.moneda = moneda;
     }
 
-    //ToString
+    //ToString.
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -97,6 +94,7 @@ public class Pais implements Comparable<Pais> {
         return Objects.equals(this.nombre, other.nombre);
     }
 
+    //CompareTo.
     @Override
     public int compareTo(Pais o) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

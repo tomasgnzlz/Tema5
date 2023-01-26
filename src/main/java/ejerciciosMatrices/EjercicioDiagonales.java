@@ -108,8 +108,11 @@ public class EjercicioDiagonales {
 
     /*
     
-     */
+    
     //MÉTODOS VICO // MÉTODOS VICO // MÉTODOS VICO // MÉTODOS VICO // MÉTODOS VICO // MÉTODOS VICO.
+    
+    
+     */
     //Método para mostrar los elementos de la diagonal principal de la matriz. 
     public static List<Integer> elementosDiagonalPrincipal(int[][] matriz) {
         List<Integer> lista = new ArrayList<>();
