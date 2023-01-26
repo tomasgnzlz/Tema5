@@ -9,6 +9,7 @@ import java.util.Objects;
 /**
  *
  * @author tomas
+ * esgseghe
  */
 public class ClaseX implements Comparable<ClaseX> {
 
