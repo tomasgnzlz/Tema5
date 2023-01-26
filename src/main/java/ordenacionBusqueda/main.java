@@ -60,7 +60,7 @@ public class main {
         Collections.sort(paises, cirterioSuperficie.thenComparing(criterioNombre));
         paises.forEach(System.out::println);
 
-        //···Ordena la lista de paises por superficie y luego por población.···
+        //###########Ordena la lista de paises por superficie y luego por población.
         //Collections.sort(paises, cirterioSuperficie);
         //Collections.sort(paises, cirterioPoblacion);
         //Cuando se pida que ordene por dos a la vez, mejor hacer esto. 
@@ -70,11 +70,11 @@ public class main {
         //Busqueda por orden natural( por nombre)
         //La lista donde buscar la información debe de estar ordenada previamente
         //segun el criterio de orden natural (nombre)         --> Comparable en Pais. 
-        Collections.sort(paises);//ON
+        Collections.sort(paises);//OrdenacionPorNombre
         paises.forEach(System.out::println);
         Pais objBuscar = new Pais();
         
-        objBuscar.setNombre("eeUU");//Lista ordenada por nombre, busqueda por nombre, key es nombre.
+        objBuscar.setNombre("Portugal");//Lista ordenada por nombre, busqueda por nombre, key es nombre.
         int posicion= Collections.binarySearch(paises, objBuscar);//No le paso el criterio xq ya lo tiene pais. 
         System.out.println("            PORTUGAL ESTA EN LA POSICIÓN: " + posicion);
         
