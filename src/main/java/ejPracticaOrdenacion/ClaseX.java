@@ -77,16 +77,9 @@ public class ClaseX implements Comparable<ClaseX> {
     //ToString.
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("ClaseX{");
-        sb.append("vehiculos=").append(vehiculos);
-        sb.append(", marca=").append(marca);
-        sb.append(", numeroRuedas=").append(numeroRuedas);
-        sb.append(", cilindrada=").append(cilindrada);
-        sb.append(", potenciaMaxima=").append(potenciaMaxima);
-        sb.append('}');
-        return sb.toString();
+        return "ClaseX{" + "vehiculos=" + vehiculos + ", marca=" + marca + ", numeroRuedas=" + numeroRuedas + ", cilindrada=" + cilindrada + ", potenciaMaxima=" + potenciaMaxima + '}';
     }
+   
 
     //Equals&HashCode. 
     @Override
