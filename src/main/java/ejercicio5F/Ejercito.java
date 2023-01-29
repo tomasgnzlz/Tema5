@@ -4,6 +4,7 @@
  */
 package ejercicio5F;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,12 +12,32 @@ import java.util.Set;
  *
  * @author tomas
  */
-public class Ejercito {
+/*
+    ·Aplica lo estudiado para realizar una nueva clase llamada Ejercito, que contenga un número de soldados N. El constructor debe inicializar la estructura SET (no hay soldados duplicados y el orden no importa). Debe haber métodos para:
+        1. Saber el número de soldados que hay.//
+        2. Alistar a un solado.//
+        3. Saber si el ejército no tiene soldados.//
+        4. Saber si un soldado está en el ejército.//
+        4. Sacar todos los soldados, en forma de ArrayList.//
+        5. Desmatricular a un soldado del ejército.
 
+    ·Crea una clase de prueba para tu clase Ejército, donde se hagan uso de los métodos anteriores.
+ */
+public class Ejercito {
+    //
     private Set<Soldado> ejercito;
 
-    public Ejercito(Set<Soldado> ejercito) {
-        this.ejercito = new HashSet<>();
+    public Ejercito() {
+        this.ejercito = new HashSet<>();//No puede haber dos soldados con el mismo nif. 
+    }
+
+    //Getter & Setter. 
+    public void setEjercito(Set<Soldado> ejercito) {
+        this.ejercito = ejercito;
+    }
+
+    public Set<Soldado> getEjercito() {
+        return ejercito;
     }
 
     //Método para saber el nº de soldados que hay. 
@@ -37,16 +58,33 @@ public class Ejercito {
     }
 
     //Método para saber si un soldado está en el ejercito.
-    public boolean soldadoEnEjercito(Soldado solAux) {
-        boolean esta = true;
-        
-        if (solAux.getNif() ) {
-            esta = true;
-        } else {
-            return esta = false;
-        }
-
-        return esta;
-
+    public boolean soldadoEnEjercito(int nif) {
+        Soldado solAux = new Soldado();
+        solAux.setNif(nif);//Cambiar a int en su clase.
+        return ejercito.contains(nif);
     }
+
+    //Método para mostrar todos los Soldados en un ArrayList.
+    public ArrayList<Soldado> sacarArrayListSoldado() {
+        //Se crea la lista con todos los Soldados del ejercito. 
+        ArrayList<Soldado> listaSoldadosAlistados = new ArrayList<>();
+
+        //Recorro la clase Soldados para obtener todos sus elementos y devolverlos en una lista.
+        for (Soldado soldadosDesdeClaseS : listaSoldadosAlistados) {
+            //Añado los soldados a la lista.
+            listaSoldadosAlistados.add(soldadosDesdeClaseS);
+        }
+        return listaSoldadosAlistados;
+    }
+
+    //Método para eliminar soldados de listasoldadosAlistados.
+    public void eliminarSoldados(int nif) {
+        //Creo el objeto soldado. 
+        Soldado solAux = new Soldado();
+        //LE paso el atributo que hace falta introducir para eliminar un soldado.
+        solAux.setNif(nif);
+        //Elimino dicho soldado. 
+        ejercito.remove(solAux);
+    }
+
 }

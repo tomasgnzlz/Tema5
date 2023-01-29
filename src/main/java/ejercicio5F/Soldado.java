@@ -11,14 +11,15 @@ import java.util.Objects;
  * @author tomas
  */
 public class Soldado implements Comparable<Soldado>{
-    private String nif;
+    //Se crean aquellos atributos que pide el ejercicio. 
+    private int nif;
     private String nombre;
     private String apellido1;
     private String apellido2;
     private int edad;
 
     //Constructor predeterminado. 
-    public Soldado(String nif, String nombre, String apellido1, String apellido2, int edad) {
+    public Soldado(int nif, String nombre, String apellido1, String apellido2, int edad) {
         this.nif = nif;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -31,11 +32,11 @@ public class Soldado implements Comparable<Soldado>{
     }
 
     //Getters & Setters. 
-    public String getNif() {
+    public int getNif() {
         return nif;
     }
 
-    public void setNif(String nif) {
+    public void setNif(int nif) {
         this.nif = nif;
     }
 
@@ -71,7 +72,7 @@ public class Soldado implements Comparable<Soldado>{
         this.edad = edad;
     }
 
-    //toString. 
+    //toString.
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -112,7 +113,8 @@ public class Soldado implements Comparable<Soldado>{
     @Override
     public int compareTo(Soldado o) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        return this.nif.compareToIgnoreCase(o.nif);
+        //return this.nif.compareToIgnoreCase(o.nif);
+        return Integer.compare(this.nif, o.getNif());
     }
     
     
