@@ -44,7 +44,7 @@ public class PruebaClaseEjercitoOrdenado {
         System.out.println("El ejercito tiene " + numSoldados + " alistados." + "\n");
         //Uso del método para  ver si el ejercito está vacío o no. 
         boolean estadoEjercito = ejercito.ejercitoVacio();
-        System.out.println("¿El ejerctito está vacío o tiene efectivos disponibles? " + estadoEjercito + "\n");
+        System.out.println("¿El ejerctito está vacío? " + estadoEjercito + "\n");
 
         //Uso del método para comprobar que un soldado está en el Ejercito. 
         boolean esta = ejercito.soldadoEnEjercito(7);
@@ -72,6 +72,10 @@ public class PruebaClaseEjercitoOrdenado {
         //Imprimo la lista de soldados
         ejercito.getEjercito().forEach(System.out::println);
         //Como el solado con ese nombre ya está alistado no lo añade a la lista de soldados. 
+        
+        /*
+        ME FALTA ORDENARLO CON EL COMPARATOR QUE SERÍA EL ORDEN NATURAL DE LOS SET. 
+        */
     }
     
 }

@@ -39,12 +39,14 @@ public class PruebaMetodosEjercito {
         //Uso del método nº de soldados que hay en el ejercito.
         int numSoldados = ejercito.numeroSoldados();
         System.out.println("El ejercito tiene " + numSoldados + " alistados." + "\n");
+
         //Uso del método para  ver si el ejercito está vacío o no. 
         boolean estadoEjercito = ejercito.ejercitoVacio();
-        System.out.println("¿El ejerctito está vacío o tiene efectivos disponibles? " + estadoEjercito + "\n");
+        System.out.println("¿El ejerctito está vacío? " + estadoEjercito + "\n");
 
         //Uso del método para comprobar que un soldado está en el Ejercito. 
         boolean esta = ejercito.soldadoEnEjercito(7);
+
         System.out.println("¿Está el soldado con el nif 7 en el ejercito? " + esta + "\n");
 
         //Uso del método que Muestra en una lista todos los sodlados alistados.
@@ -61,6 +63,19 @@ public class PruebaMetodosEjercito {
         //Si sale un soldado menos que en el método anterior quiere decir que nuestro metodo funciona. 
         System.out.println("El ejercito tiene " + numSoldados + " alistados." + "\n");
 
+        //comprubeo si haay alistados en el ejercito.
+        estadoEjercito = ejercito.ejercitoVacio();
+        System.out.println("¿El ejerctito está vacío? " + estadoEjercito + "\n");
+
+        System.out.println(""
+                + ""
+                + "                     MÉTODOS NUEVOS VICO."
+                + ""
+                + "                        ");
+        ejercito.mostrarEjercito1();
+        System.out.println(" ");
+        ejercito.mostrarEjercito2();
+        //Se va a empezar a hacer en los ficheros. 
     }
 
 }

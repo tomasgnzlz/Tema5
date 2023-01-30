@@ -6,6 +6,7 @@ package ejercicio5F;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -24,11 +25,16 @@ import java.util.Set;
     ·Crea una clase de prueba para tu clase Ejército, donde se hagan uso de los métodos anteriores.
  */
 public class Ejercito {
-    //
+
+    //Cro ejercito genérico. 
     private Set<Soldado> ejercito;
 
     public Ejercito() {
-        this.ejercito = new HashSet<>();//No puede haber dos soldados con el mismo nif. 
+        //Herencia//Polimorfismo. 
+        this.ejercito = new HashSet<>();
+        //No puede haber dos soldados con el mismo nif. 
+        //Guarda los objetos impidiendo la reptición cuando tenen == nif
+        //Ademas no hya orden para saber donde está cada objeto. 
     }
 
     //Getter & Setter. 
@@ -61,7 +67,8 @@ public class Ejercito {
     public boolean soldadoEnEjercito(int nif) {
         Soldado solAux = new Soldado();
         solAux.setNif(nif);//Cambiar a int en su clase.
-        return ejercito.contains(nif);
+        //MIRAR BIEN QUE PARAMETRO PASO POR EL CONTAINS. 
+        return ejercito.contains(solAux);
     }
 
     //Método para mostrar todos los Soldados en un ArrayList.
@@ -85,6 +92,24 @@ public class Ejercito {
         solAux.setNif(nif);
         //Elimino dicho soldado. 
         ejercito.remove(solAux);
+    }
+//--------------------------------------------------------------------------------------------
+
+    public void mostrarEjercito1() {
+        //Está usando un objeto de tipo iterator. 
+        for (Soldado s : ejercito) {
+            System.out.println(s);
+        }
+    }
+
+    //Método para recorrer colecciones sin orden. 
+    public void mostrarEjercito2() {
+        Soldado sAux;
+        Iterator<Soldado> iterador = ejercito.iterator();
+        while (iterador.hasNext()) {
+            sAux = iterador.next();
+            System.out.println(sAux);
+        }
     }
 
 }

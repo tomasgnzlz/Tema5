@@ -6,6 +6,7 @@ package ejercicio5F;
 
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
@@ -14,14 +15,14 @@ import java.util.TreeSet;
  */
 public class EjercitoOrdenado {
 
-    private Set<Soldado> ejercito;
+    private SortedSet<Soldado> ejercito;
 
     public EjercitoOrdenado(Set<Soldado> ejercito) {
         this.ejercito = new TreeSet<>();
     }
 
     public void setEjercito(Set<Soldado> ejercito) {
-        this.ejercito = ejercito;
+        this.ejercito = (SortedSet<Soldado>) ejercito;
     }
 
     public Set<Soldado> getEjercito() {
