@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -51,9 +52,9 @@ public class Prueba {
         
         //Lista de edades. 
         List<Integer> listaEdades = new ArrayList<>(nombresEdades.values());
-        //nombresEdades.replace() SOLO FUNCIONA SI ESA KEY YA ESTÁ CREADA, SI NO ESTÁ NO VA A FUNCIONAR. 
+        //nombresEdades.replace --> SOLO FUNCIONA SI ESA KEY YA ESTÁ CREADA, SI NO ESTÁ NO VA A FUNCIONAR. 
+        //PASAR SET A LIST NSQ JUANDIEGO
         
-  
     }
 
 }
