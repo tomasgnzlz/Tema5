@@ -4,6 +4,7 @@
  */
 package ejercicio26y27;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,11 +13,24 @@ import java.util.List;
  */
 public class Pila<E> {
 
-    protected List<E> listaGenerica;
+     private List<E> listaGenerica;
 
-    //Constructor que cree las pilas. 
+//  A)Constructor que cree las pilas. 
     public Pila(/*Le quito lo que tiene por defecto para que al crearla siempre slaga vacio*/) {
-        this.listaGenerica = listaGenerica;
+        this.listaGenerica = new ArrayList<>();
     }
-
+    
+//  B)
+    
+    
+    //D)Método para saber si la pila está vacía o no. 
+    public boolean estaVacia(){
+        return this.listaGenerica.isEmpty();
+    }
+    
+    
+    
+    
+    
+    
 }
