@@ -14,7 +14,7 @@ import java.util.List;
 public class Pila<T> { //La T recibe cualquier tipo de objeto. 
 
     private List<T> listaGenerica;
-
+    //METER EL ATRIBUTO PILA.
     //A)Constructor que cree las pilas. 
     public Pila(/*Le quito lo que tiene por defecto para que al crearla siempre slaga vacio*/) {
         this.listaGenerica = new ArrayList<>();
