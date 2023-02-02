@@ -29,7 +29,7 @@ public class EjercicioDiagonales {
         rellenarMatricesAutomatico(matriz);
         System.out.println("········· NORMAL ·········");
         imprimirMatriz(matriz);
-        System.out.println("········· MATRIZ SOLO CON SUS DIAGONALES ·········");
+        System.out.println("········· MATRICES SOLO CON SUS DIAGONALES ·········");
         recorrerDiagonalPrincipal(matriz);
         System.out.println("\n");
         recorrerDiagonalSecundaria(matriz);
