@@ -14,6 +14,7 @@ public class MainPila {
         //Se crea la pila en cuestión
         Pila<String> stringPila = new Pila(5);
         
+        
         //Prueba del Método para añadir elementos a la pila.
         stringPila.push("1");
         stringPila.push("5");
